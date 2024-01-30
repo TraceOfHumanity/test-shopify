@@ -27,6 +27,7 @@
       ],
       "settings": {
         "header_logo": "shopify:\/\/shop_images\/logo.svg",
+        "header_company_name": "Lighthing links",
         "header_text": "1",
         "header_subtext": "2"
       }
