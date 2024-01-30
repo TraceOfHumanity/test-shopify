@@ -13,7 +13,7 @@
         height="37"
         loading="lazy"
       >
-      <p>
+      <p style="font-size: {{ section.settings.company_name_font_size }}px;">
         {{ section.settings.header_company_name }}
       </p>
     </div>
@@ -35,6 +35,15 @@
       "type": "text",
       "id": "header_company_name",
       "label": "Company Name"
+    },
+    {
+      "type": "range",
+      "id": "company_name_font_size",
+      "label": "Company Name Font Size",
+      "min": 12,
+      "max": 36,
+      "step": 2,
+      "default": 24
     },
     {
       "type": "color",
