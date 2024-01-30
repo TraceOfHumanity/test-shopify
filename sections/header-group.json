@@ -27,7 +27,9 @@
       ],
       "settings": {
         "header_logo": "shopify:\/\/shop_images\/logo.svg",
-        "header_company_name": "Lighthing links",
+        "header_company_name": "Lighthing Links",
+        "company_name_font_size": 18,
+        "company_name_font_weight": 900,
         "header_background_color": "#f3f3f3",
         "sticky_custom_header_type": "static"
       }
