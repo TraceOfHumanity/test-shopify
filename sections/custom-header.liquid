@@ -1,4 +1,4 @@
-<header class="custom-header">
+<header class="custom-header header-{{ section.settings.sticky_custom_header_type }}">
   <div class="header-container page-width">
     <div class="logo-container">
       <img src="{{ section.settings.header_logo | img_url: '200x20' }}">
@@ -42,7 +42,8 @@
           "value": "fixed",
           "label": "Fixed"
         }
-      ]
+      ],
+      "default": "sticky"
     }
   ],
   "presets": [
