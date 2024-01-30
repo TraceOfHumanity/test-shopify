@@ -3594,9 +3594,17 @@ details-disclosure > details {
   }
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
+/*===============================================================================================*/
+.custom-header {
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  nav {
+    margin-left: auto;
+  }
 }
 
 .header-fixed {
@@ -3621,4 +3629,5 @@ details-disclosure > details {
   display: flex;
   align-items: center;
   cursor: pointer;
+  gap: 10px;
 }
