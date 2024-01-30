@@ -1,0 +1,40 @@
+<header>
+  <div class="">
+    <div class="">
+      {% comment %} <img src="{{ section.settings.header_logo | img_url: '200x20' }}" alt="Logo"> {% endcomment %}
+    </div>
+    <div class="col-md-6">
+      <h1>{{ section.settings.header_text }}</h1>
+      <p>{{ section.settings.header_subtext }}</p>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "custom-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_logo",
+      "label": "Header Logo"
+    },
+    {
+      "type": "text",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+      "type": "text",
+      "id": "header_subtext",
+      "label": "Header Subtext"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
