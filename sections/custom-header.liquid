@@ -1,5 +1,5 @@
 <header class="custom-header">
-  <div class="header-container">
+  <div class="header-container page-width">
     <div class="logo-container">
       <img src="{{ section.settings.header_logo | img_url: '200x20' }}">
       <p>
@@ -24,6 +24,25 @@
       "type": "text",
       "id": "header_company_name",
       "label": "Company Name"
+    },
+    {
+      "type": "select",
+      "id": "sticky_custom_header_type",
+      "label": "Header Type",
+      "options": [
+        {
+          "value": "sticky",
+          "label": "Sticky"
+        },
+        {
+          "value": "static",
+          "label": "Static"
+        },
+        {
+          "value": "fixed",
+          "label": "Fixed"
+        }
+      ]
     }
   ],
   "presets": [
