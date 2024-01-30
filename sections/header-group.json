@@ -19,9 +19,21 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "custom_header_MkAMt9": {
+      "type": "custom-header",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "header_logo": "shopify:\/\/shop_images\/logo.jpg",
+        "header_text": "1",
+        "header_subtext": "2"
+      }
     }
   },
   "order": [
-    "header"
+    "header",
+    "custom_header_MkAMt9"
   ]
 }
