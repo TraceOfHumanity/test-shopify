@@ -2608,8 +2608,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 18px;
+  width: 18px;
   padding: 0;
 }
 
@@ -3595,7 +3595,11 @@ details-disclosure > details {
 }
 
 /*===============================================================================================*/
-.custom-header {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* .custom-header {
   .header-container {
     display: flex;
     align-items: center;
@@ -3623,4 +3627,4 @@ details-disclosure > details {
   align-items: center;
   cursor: pointer;
   gap: 10px;
-}
+} */

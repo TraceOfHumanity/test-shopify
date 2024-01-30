@@ -2,6 +2,32 @@
   .custom-header {
     background: {{ section.settings.header_background_color }};
   }
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  nav {
+    margin-left: auto;
+
+    a{
+      text-transform: uppercase;
+    }
+  }
+  .main-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+  }
 {% endstyle %}
 
 <header class="custom-header header-{{ section.settings.sticky_custom_header_type }}">
@@ -17,8 +43,12 @@
         {{ section.settings.header_company_name }}
       </p>
     </div>
-    <nav>nav</nav>
-    <button>b</button>
+    <nav class="main-nav">
+      <a href="/">Shop</a>
+      <a href="/contact">Contact</a>
+      <a href="/for-partners">For Partners</a>
+    </nav>
+    <a href="/cart">cart</a>
   </div>
 </header>
 
