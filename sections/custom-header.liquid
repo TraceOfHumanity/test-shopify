@@ -1,3 +1,9 @@
+{% style %}
+  .custom-header {
+    bacground-color: {{ section.settings.header_background_color }};
+  }
+{% endstyle %}
+
 <header class="custom-header header-{{ section.settings.sticky_custom_header_type }}">
   <div class="header-container page-width">
     <div class="logo-container">
@@ -24,6 +30,11 @@
       "type": "text",
       "id": "header_company_name",
       "label": "Company Name"
+    },
+    {
+      "type": "color_background",
+      "id": "header_background_color",
+      "label": "Header Background Color"
     },
     {
       "type": "select",
