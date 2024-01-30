@@ -28,7 +28,8 @@
       "settings": {
         "header_logo": "shopify:\/\/shop_images\/logo.svg",
         "header_company_name": "Lighthing links",
-        "sticky_custom_header_type": "sticky"
+        "header_background_color": "#f3f3f3",
+        "sticky_custom_header_type": "static"
       }
     }
   },
