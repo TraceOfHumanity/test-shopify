@@ -8,7 +8,7 @@
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "none",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
@@ -28,8 +28,7 @@
       "settings": {
         "header_logo": "shopify:\/\/shop_images\/logo.svg",
         "header_company_name": "Lighthing links",
-        "header_text": "1",
-        "header_subtext": "2"
+        "sticky_custom_header_type": "sticky"
       }
     }
   },
