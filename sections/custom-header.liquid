@@ -7,7 +7,12 @@
 <header class="custom-header header-{{ section.settings.sticky_custom_header_type }}">
   <div class="header-container page-width">
     <div class="logo-container">
-      <img src="{{ section.settings.header_logo | img_url: '200x20' }}">
+      <img
+        src="{{ section.settings.header_logo | img_url: '200x20' }}"
+        width="200"
+        height="20"
+        loading="lazy"
+      >
       <p>
         {{ section.settings.header_company_name }}
       </p>
