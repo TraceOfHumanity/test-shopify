@@ -1,7 +1,10 @@
-<header>
-  <div class="header">
-    <div class="">
+<header class="header">
+  <div class="header-container">
+    <div class="logo-container">
       <img src="{{ section.settings.header_logo | img_url: '200x20' }}">
+      <p>
+        {{ section.settings.header_company_name }}
+      </p>
     </div>
     <div class="col-md-6">
       <h1>{{ section.settings.header_text }}</h1>
@@ -18,6 +21,11 @@
       "type": "image_picker",
       "id": "header_logo",
       "label": "Header Logo"
+    },
+    {
+      "type": "text",
+      "id": "header_company_name",
+      "label": "Company Name"
     },
     {
       "type": "text",
