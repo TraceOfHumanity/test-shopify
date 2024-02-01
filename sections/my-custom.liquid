@@ -1,0 +1,26 @@
+<div style="background-color:  {{ section.settings.bg_color }}; color: {{ section.settings.text-color }};">
+  <h1>My custom section</h1>
+</div>
+
+{% schema %}
+{
+  "name": "my-custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "my-custom-text",
+      "label": "My custom text"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "My custom color"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "text color"
+    }
+  ]
+}
+{% endschema %}
