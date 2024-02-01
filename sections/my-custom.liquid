@@ -5,8 +5,8 @@
 {% endcomment %}
 
 {% for block in section.blocks %}
-  <div>
-    <p>
+  <div style="background-color:  {{ block.settings.bg_color }};">
+    <p style="color: {{ block.settings.text_color }};">
       {{ block.settings.content }}
     </p>
   </div>
