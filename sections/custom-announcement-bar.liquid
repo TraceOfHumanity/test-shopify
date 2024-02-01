@@ -1,8 +1,8 @@
-{% for block in section.settings %}
-  <div style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
-    {{ block.settings.title }}
-  </div>
-{% endfor %}
+<div style="background-color: {{ section.settings.header_background_color }};">
+  <p>
+    {{ section.settings.header_company_name }}
+  </p>
+</div>
 
 {% schema %}
 {
@@ -11,54 +11,15 @@
   "class": "announcement-bar-section",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "header_logo",
-      "label": "Header Logo"
-    },
-    {
       "type": "text",
       "id": "header_company_name",
       "label": "Company Name"
     },
     {
-      "type": "range",
-      "id": "company_name_font_size",
-      "label": "Company Name Font Size",
-      "min": 12,
-      "max": 32,
-      "step": 2,
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "company_name_font_weight",
-      "label": "Company Name Font Weight",
-      "min": 300,
-      "max": 900,
-      "step": 100,
-      "default": 600
-    },
-    {
       "type": "color",
-      "id": "header_background_color",
-      "label": "Header Background Color",
+      "id": "text_color",
+      "label": "Text Color",
       "default": "#ffffff"
-    },
-    {
-      "type": "select",
-      "id": "sticky_custom_header_type",
-      "label": "Header Type",
-      "options": [
-        {
-          "value": "static",
-          "label": "Static"
-        },
-        {
-          "value": "fixed",
-          "label": "Fixed"
-        }
-      ],
-      "default": "fixed"
     }
   ],
   "presets": [
