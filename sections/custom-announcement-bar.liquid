@@ -1,4 +1,4 @@
-{% for block in section.blocks %}
+{% for block in section.settings %}
   <div style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
     {{ block.settings.title }}
   </div>
@@ -11,6 +11,12 @@
   "class": "announcement-bar-section",
   "settings": [
     {
+      "type": "text",
+      "id": "title",
+      "default": "title",
+      "label": "Title"
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "default": "#fff",
@@ -21,20 +27,6 @@
       "id": "text_color",
       "default": "#000",
       "label": "Text color"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "announcement",
-      "name": "t:sections.announcement-bar.blocks.announcement.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "default": "title",
-          "label": "Title"
-        }
-      ]
     }
   ],
   "presets": [
