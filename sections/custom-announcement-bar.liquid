@@ -1,5 +1,5 @@
 {% for block in section.blocks %}
-  <div style="background-color: {{ settings.settings.bg_color }}; color: {{ settings.settings.text_color }};">
+  <div style="background-color: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
     {{ block.settings.title }}
   </div>
 {% endfor %}
@@ -9,20 +9,7 @@
   "name": "custom-announcement-bar",
   "max_blocks": 12,
   "class": "announcement-bar-section",
-  "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "default": "#fff",
-      "label": "Background color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "default": "#000",
-      "label": "Text color"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "announcement",
@@ -33,13 +20,25 @@
           "id": "title",
           "default": "title",
           "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "default": "#fff",
+          "label": "Background color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#000",
+          "label": "Text color"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "custom-announcement-bar",
+      "name": "t:sections.announcement-bar.presets.name",
       "blocks": [
         {
           "type": "announcement"
