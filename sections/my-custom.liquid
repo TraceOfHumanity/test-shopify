@@ -1,6 +1,6 @@
 <div style="background-color:  {{ section.settings.bg_color }}; padding: 0px;">
   {% for block in section.blocks %}
-    <div style="background-color:  {{ block.settings.bg_color }};">
+    <div>
       <p style="color: inherit;">
         {{ block.settings.content }}
       </p>
@@ -34,11 +34,6 @@
           "type": "richtext",
           "id": "content",
           "label": "Content"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Background color"
         }
       ]
     }
