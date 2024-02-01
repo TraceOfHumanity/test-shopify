@@ -73,6 +73,11 @@
 
 /* base */
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 .no-js:not(html) {
   display: none !important;
 }
