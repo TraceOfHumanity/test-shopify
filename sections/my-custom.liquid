@@ -1,30 +1,48 @@
-<div style="background-color:  {{ section.settings.bg_color }};">
-  <h1 style="color: {{ section.settings.text_color }};">My custom section</h1>
-</div>
+{% comment %}
+  <div style="background-color:  {{ section.settings.bg_color }};">
+    <h1 style="color: {{ section.settings.text_color }};">My custom section</h1>
+  </div>
+{% endcomment %}
+
+{% for block in section.blocks %}
+  <div>
+    <p>
+      {{ block.settings.content }}
+    </p>
+  </div>
+{% endfor %}
 
 {% schema %}
 {
-  "name": "my-custom-block",
-  "settings": [
+  "name": "My custom section",
+  "max_blocks": 10,
+  "settings": [],
+  "blocks": [
     {
-      "type": "text",
-      "id": "my-custom-text",
-      "label": "My custom text"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "My custom color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "text color"
+      "type": "announcement",
+      "name": "Announcement component",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "My custom section",
+      "name": "My custom block",
       "category": "announcement"
     }
   ]
