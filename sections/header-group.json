@@ -33,10 +33,33 @@
         "header_background_color": "#f3f3f3",
         "sticky_custom_header_type": "static"
       }
+    },
+    "my_custom_R9czC8": {
+      "type": "my-custom",
+      "blocks": {
+        "announcement_8dMGqU": {
+          "type": "announcement",
+          "settings": {
+            "content": "<p>123<\/p>",
+            "bg_color": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_8dMGqU"
+      ],
+      "custom_css": [
+        "*{padding: 0;}"
+      ],
+      "settings": {
+        "bg_color": "#f90000"
+      }
     }
   },
   "order": [
     "header",
-    "custom_header_MkAMt9"
+    "custom_header_MkAMt9",
+    "my_custom_R9czC8"
   ]
 }
