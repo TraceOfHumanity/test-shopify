@@ -9,7 +9,20 @@
   "name": "custom-announcement-bar",
   "max_blocks": 12,
   "class": "announcement-bar-section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#000",
+      "label": "Text color"
+    }
+  ],
   "blocks": [
     {
       "type": "announcement",
@@ -20,18 +33,6 @@
           "id": "title",
           "default": "title",
           "label": "Title"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "default": "#fff",
-          "label": "Background color"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "default": "#000",
-          "label": "Text color"
         }
       ]
     }
