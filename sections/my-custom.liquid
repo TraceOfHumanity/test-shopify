@@ -1,4 +1,7 @@
-<div style="background-color:  {{ section.settings.bg_color }}; padding: 0px; color: {{ section.settings.text_color }};">
+<div
+  class="{{ section.settings.text_align }}"
+  style="background-color:  {{ section.settings.bg_color }}; padding: 0px; color: {{ section.settings.text_color }};"
+>
   {% for block in section.blocks %}
     <div>
       <p style="color: inherit;">
@@ -22,7 +25,27 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color",
-      "default": "#00ffff"
+      "default": "#000"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "default": "text-left",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Center"
+        },
+        {
+          "value": "text-right",
+          "label": "Right"
+        }
+      ]
     }
   ],
   "blocks": [
