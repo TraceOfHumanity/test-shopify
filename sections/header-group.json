@@ -22,6 +22,7 @@
     },
     "custom_header_MkAMt9": {
       "type": "custom-header",
+      "disabled": true,
       "custom_css": [
 
       ],
@@ -33,32 +34,10 @@
         "header_background_color": "#f3f3f3",
         "sticky_custom_header_type": "static"
       }
-    },
-    "my_custom_R9czC8": {
-      "type": "my-custom",
-      "blocks": {
-        "announcement_EQwtnr": {
-          "type": "announcement",
-          "settings": {
-            "content": "<p>asaasdfas<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_EQwtnr"
-      ],
-      "custom_css": [
-
-      ],
-      "settings": {
-        "bg_color": "#cfcfcf",
-        "text_color": "#000000"
-      }
     }
   },
   "order": [
     "header",
-    "custom_header_MkAMt9",
-    "my_custom_R9czC8"
+    "custom_header_MkAMt9"
   ]
 }
