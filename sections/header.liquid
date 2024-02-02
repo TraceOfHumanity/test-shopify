@@ -1,19 +1,21 @@
 <header class="header border-y py-2 items-center">
   <div class="header__logo">
-    {% if section.settings.logo %}
-      <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
-        <img
-          src="{{ section.settings.logo | image_url:"master"}}"
-          alt="{{ shop.name }}"
-          width="auto"
-          height="auto"
-        >
-      </a>
-    {% else %}
-      <a href="/">
-        {{ shop.name }}
-      </a>
-    {% endif %}
+    {% comment %} {% if section.settings.logo %} {% endcomment %}
+    <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
+      <img
+        src="{{ section.settings.logo | image_url:"master"}}"
+        alt="{{ shop.name }}"
+        width="auto"
+        height="auto"
+      >
+    </a>
+    {% comment %}
+      {% else %}
+        <a href="/">
+          {{ shop.name }}
+        </a>
+      {% endif %}
+    {% endcomment %}
   </div>
   <div class="header__menu">menu</div>
   <div class="header__icons">icons</div>
@@ -68,7 +70,7 @@
     {
       "type": "image_picker",
       "id": "logo",
-      "label": "logo"
+      "label": "logo image"
     },
     {
       "type": "range",
