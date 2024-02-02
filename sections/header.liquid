@@ -1,9 +1,9 @@
-<div class="header border-y">
+<header class="header border-y py-2 items-center">
   <div class="header__logo">
-    {% if section.settings.logo != blank %}
+    {% if section.settings.logo %}
       <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
         <img
-          src="{{ section.settings.logo | image_url: "master"}}"
+          src="{{ section.settings.logo | image_url:"master"}}"
           alt="{{ shop.name }}"
           width="auto"
           height="auto"
@@ -17,7 +17,7 @@
   </div>
   <div class="header__menu">menu</div>
   <div class="header__icons">icons</div>
-</div>
+</header>
 
 <script type="application/ld+json">
   {
