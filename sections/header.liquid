@@ -3,7 +3,7 @@
     {% comment %} {% if section.settings.logo %} {% endcomment %}
     <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
       <img
-        src="{{ section.settings.logo | image_url: 'master' }}"
+        src="{{ section.settings.logo | img_url: 'master' }}"
         alt="{{ shop.name }}"
         width="auto"
         height="auto"
