@@ -1,5 +1,20 @@
-<div class="header">
-  <div class="header__logo">logo</div>
+<div class="header border-y">
+  <div class="header__logo">
+    {% if section.settings.logo != blank %}
+      <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
+        <img
+          src="{{ section.settings.logo | image_url: "master"}}"
+          alt="{{ shop.name }}"
+          width="auto"
+          height="auto"
+        >
+      </a>
+    {% else %}
+      <a href="/">
+        {{ shop.name }}
+      </a>
+    {% endif %}
+  </div>
   <div class="header__menu">menu</div>
   <div class="header__icons">icons</div>
 </div>
@@ -50,6 +65,20 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "label": "logo width",
+      "default": 100
+    },
     {
       "type": "select",
       "id": "logo_position",

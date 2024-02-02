@@ -548,6 +548,9 @@ video {
 .isolate {
   isolation: isolate;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .block {
   display: block;
 }
@@ -573,6 +576,10 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.border-y {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
 }
 .bg-red-600 {
   --tw-bg-opacity: 1;
