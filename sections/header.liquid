@@ -21,47 +21,45 @@
   <div class="header__icons">icons</div>
 </header>
 
-{% comment %}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
-      "@type": "Organization",
+      "@type": "WebSite",
       "name": {{ shop.name | json }},
-      {% if settings.logo %}
-        "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-      {% endif %}
-      "sameAs": [
-        {{ settings.social_twitter_link | json }},
-        {{ settings.social_facebook_link | json }},
-        {{ settings.social_pinterest_link | json }},
-        {{ settings.social_instagram_link | json }},
-        {{ settings.social_tiktok_link | json }},
-        {{ settings.social_tumblr_link | json }},
-        {{ settings.social_snapchat_link | json }},
-        {{ settings.social_youtube_link | json }},
-        {{ settings.social_vimeo_link | json }}
-      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
       "url": {{ request.origin | append: page.url | json }}
     }
   </script>
-
-  {%- if request.page_type == 'index' -%}
-    {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "name": {{ shop.name | json }},
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {{ potential_action_target | json }},
-          "query-input": "required name=search_term_string"
-        },
-        "url": {{ request.origin | append: page.url | json }}
-      }
-    </script>
-  {%- endif -%}
-{% endcomment %}
+{%- endif -%}
 
 {% schema %}
 {
@@ -69,11 +67,6 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "logo image"
-    },
     {
       "type": "range",
       "id": "logo_width",
