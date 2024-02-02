@@ -3,7 +3,7 @@
     {% comment %} {% if section.settings.logo %} {% endcomment %}
     <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
       <img
-        src="{{ section.settings.logo | img_url: '500x' }}"
+        src="{{ section.settings.logo | image_url: 'master' }}"
         alt="{{ shop.name }}"
         width="auto"
         height="auto"
@@ -67,10 +67,6 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__2.content"
-    },
     {
       "type": "image_picker",
       "id": "logo",
