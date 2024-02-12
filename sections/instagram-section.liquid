@@ -1,4 +1,13 @@
-<section class="container">123</section>
+<section class="container mx-auto">
+  {% for image in section.blocks %}
+    <img
+      src="{{ image.settings.instagram_image | img_url: 'auto' }}"
+      alt="Instagram image"
+      width="auto"
+      height="auto"
+    >
+  {% endfor %}
+</section>
 
 {% schema %}
 {
