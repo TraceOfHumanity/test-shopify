@@ -68,15 +68,33 @@
       </button>
     </nav>
     <div class="header__icons h-full items-center flex justify-end">
-      <button
-        type="button"
-        title="Cart button"
-        class="header__icon flex justify-center  bg-gray-100 h-full items-center px-6"
+      {% comment %}
+        <button
+          type="button"
+          title="Cart button"
+          class="header__icon flex justify-center bg-black bg-opacity-10 h-full items-center px-6"
+          style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+        >
+          {% render 'icon-cart', class: 'w-10 h-10' %}
+          <span class="sr-only">{{ 'templates.cart.cart' | t }} </span>
+        </button>
+      {% endcomment %}
+      <a
+        href="{{ routes.cart_url }}"
+        class="header__icon flex justify-center bg-black bg-opacity-10 h-full items-center px-6"
+        id="cart-icon-bubble"
         style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
       >
         {% render 'icon-cart', class: 'w-10 h-10' %}
-        <span class="sr-only">{{ 'templates.cart.cart' | t }} </span>
-      </button>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
     </div>
   </div>
 

@@ -40,13 +40,25 @@
         grid-template-columns: 1fr 2fr 1fr;
     }
 
-    nav {
+    nav,
+    .header__icons {
+
 
         a,
         button {
             text-transform: uppercase;
+            transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background: #fab60f;
+            }
         }
     }
+
 
     //submenu
     .nav__item {
