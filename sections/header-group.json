@@ -5,41 +5,17 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo": "shopify:\/\/shop_images\/logo.jpg",
-        "logo_width": 100,
-        "logo_position": "middle-left",
+        "logo": "shopify:\/\/shop_images\/logo2.png",
+        "logo_width": 220,
+        "background_color": "#ffffff",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "none",
+        "sticky_header_type": "fixed",
         "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "custom_header_MkAMt9": {
-      "type": "custom-header",
-      "disabled": true,
-      "custom_css": [
-
-      ],
-      "settings": {
-        "header_logo": "shopify:\/\/shop_images\/logo.svg",
-        "header_company_name": "Lighthing Links",
-        "company_name_font_size": 18,
-        "company_name_font_weight": 900,
-        "header_background_color": "#f3f3f3",
-        "sticky_custom_header_type": "static"
+        "padding_y": 1
       }
     }
   },
   "order": [
-    "header",
-    "custom_header_MkAMt9"
+    "header"
   ]
 }

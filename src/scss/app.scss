@@ -4,12 +4,27 @@
 
 //header 
 .header {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: "header-logo header-menu header-icons";
+
+    .container {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "header-logo header-menu header-icons";
+
+        @media (max-width: 767px) {
+            grid-template-areas: "header-menu header-logo header-icons";
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+    }
 
     .header__logo {
         grid-area: header-logo;
+
+        @media (max-width: 767px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .header__menu {
@@ -23,6 +38,14 @@
     @media (max-width: 768px) {
         grid-template-areas: "header-menu header-logo header-icons";
         grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    nav {
+
+        a,
+        button {
+            text-transform: uppercase;
+        }
     }
 
     //submenu

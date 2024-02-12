@@ -1,50 +1,87 @@
-<header class="header border-y py-2 items-center">
-  <div class="header__logo">
-    {% if section.settings.logo %}
-      <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
-        <img
-          src="{{ section.settings.logo | img_url: 'master' }}"
-          alt="{{ shop.name }}"
-          width="auto"
-          height="auto"
-        >
-      </a>
-    {% else %}
-      <a href="/">
-        {{ shop.name }}
-      </a>
-    {% endif %}
+<header
+  class="header z-50 {%if section.settings.sticky_header_type == 'fixed'%}fixed top-0 left-0 w-full{% else %} relative {% endif %} {% if section.settings.show_line_separator == true %} border-b border-gray-400 {% endif %} "
+  style="background-color: {{ section.settings.background_color }}; "
+>
+  <div class="container gap-x-8 items-center">
+    <div class="header__logo">
+      {% if section.settings.logo %}
+        <a href="/" class="block" style="max-width: {{ section.settings.logo_width }}px;">
+          <img
+            src="{{ section.settings.logo | img_url: 'master' }}"
+            alt="{{ shop.name }}"
+            width="auto"
+            height="auto"
+          >
+        </a>
+      {% else %}
+        <a href="/">
+          {{ shop.name }}
+        </a>
+      {% endif %}
+    </div>
+    <nav class="header__menu flex gap-x-8" x-data>
+      <button
+        class="md:hidden "
+        type="button"
+        @click="$dispatch('toggle-menu')"
+        style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+      >
+        {% render 'icon-menu', class: 'w-10' %}
+      </button>
+      <ul class="header__menu-nav hidden md:flex gap-x-8 md:ml-auto">
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <li class="nav__item block relative">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              <ul class="nav__item-submenu absolute bg-white border px-3 min-w-[160px] top-16 left-1/2 transform -translate-x-1/2">
+                {% for sublink in linklists[link.handle].links %}
+                  <li>
+                    <a
+                      href="{{sublink.url}}"
+                      style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+                    >
+                      {{ sublink.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li>
+              <a
+                class="nav__item px-4 block "
+                href="{{ link.url }}"
+                style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+              >
+                {{- link.title -}}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <button
+        class="hidden md:block px-4"
+        style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+        @click="$dispatch('toggle-for-partners-popup')"
+      >
+        for Partners
+      </button>
+    </nav>
+    <div class="header__icons h-full items-center flex justify-end">
+      <button
+        type="button"
+        title="Cart button"
+        class="header__icon flex justify-center  bg-gray-100 h-full items-center px-6"
+        style="padding-top: {{ section.settings.padding_y }}vh; padding-bottom: {{ section.settings.padding_y }}vh;"
+      >
+        {% render 'icon-cart', class: 'w-10 h-10' %}
+        <span class="sr-only">{{ 'templates.cart.cart' | t }} </span>
+      </button>
+    </div>
   </div>
-  <nav class="header__menu flex">
-    <button class="md:hidden" type="button">
-      {% render 'icon-menu', class: 'w-10' %}
-    </button>
-    <ul class="header__menu-nav hidden md:flex gap-2">
-      {% for link in section.settings.menu.links %}
-        {% if link.links != blank %}
-          <li class="nav__item py-5 px-4 block relative">
-            <a href="{{ link.url }}">{{ link.title }}</a>
-            <ul
-              class="nav__item-submen absolute bg-white border py-4 px-3 min-w-[160px] top-16 left-1/2 transform -translate-x-1/2"
-            >
-              {% for sublink in linklists[link.handle].links %}
-                <li>
-                  <a href="{{sublink.url}}">
-                    {{ sublink.title }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% else %}
-          <li>
-            <a class="nav__item py-5 px-4 block" href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
-  <div class="header__icons">icons</div>
+
+  {% render 'mobile-menu' %}
+  {% render 'for-partners-popup' %}
 </header>
 
 <script type="application/ld+json">
@@ -101,36 +138,17 @@
     {
       "type": "range",
       "id": "logo_width",
-      "min": 20,
-      "max": 200,
+      "min": 100,
+      "max": 250,
       "step": 5,
       "label": "logo width",
-      "default": 100
+      "default": 200
     },
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        },
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_help.content"
+      "type": "color",
+      "id": "background_color",
+      "label": "Header background color",
+      "default": "#ffffff"
     },
     {
       "type": "link_list",
@@ -140,150 +158,35 @@
     },
     {
       "type": "select",
-      "id": "menu_type_desktop",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
-        },
-        {
-          "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
-        },
-        {
-          "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
-        }
-      ],
-      "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label",
-      "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "select",
       "id": "sticky_header_type",
       "options": [
         {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+          "value": "static",
+          "label": "static"
         },
         {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
-        },
-        {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
-        },
-        {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+          "value": "fixed",
+          "label": "fixed"
         }
       ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
+      "default": "static",
+      "label": "Header type"
     },
     {
       "type": "checkbox",
       "id": "show_line_separator",
-      "default": true,
+      "default": false,
       "label": "t:sections.header.settings.show_line_separator.label"
     },
     {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": true,
-      "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": true,
-      "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    },
-    {
       "type": "range",
-      "id": "margin_bottom",
+      "id": "padding_y",
       "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
+      "max": 5,
+      "step": 0.2,
+      "unit": "vh",
+      "label": "Header height",
+      "default": 1
     }
   ],
   "blocks": [
