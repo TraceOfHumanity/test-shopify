@@ -1,39 +1,20 @@
+<section class="container">123</section>
+
 {% schema %}
 {
   "name": "Instagram-section",
-  "settings": [
+  "settings": [],
+  "blocks": [
     {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Instagram"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Follow us on Instagram"
-    },
-    {
-      "type": "text",
-      "id": "username",
-      "label": "Username",
-      "default": "shopify"
-    },
-    {
-      "type": "text",
-      "id": "accessToken",
-      "label": "Access Token",
-      "default": "YOUR_ACCESS_TOKEN"
-    },
-    {
-      "type": "range",
-      "id": "limit",
-      "label": "Limit",
-      "min": 1,
-      "max": 20,
-      "step": 1,
-      "default": 6
+      "type": "image",
+      "name": "Instagram image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "instagram_image",
+          "label": "Image"
+        }
+      ]
     }
   ],
   "presets": [
